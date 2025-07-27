@@ -514,12 +514,9 @@ img {
     margin-bottom: 16px;
 }
 
-.footer-social-media {
-    align-items: baseline;
-}
-
 .second-footer-container {
     display: flex;
+    align-items: baseline;
 }
 
 .social-item {
