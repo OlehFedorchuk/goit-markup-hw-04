@@ -73,6 +73,7 @@ img {
 /* Header */
 .page-header {
     border-bottom: 1px solid #E7E9FC;
+    box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08), 0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
 }
 
 .header-container {
@@ -95,6 +96,7 @@ img {
     display: flex;
     align-items: center;
     gap: 40px;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-logo {
@@ -110,10 +112,29 @@ img {
     line-height: 1.5;
     display: block;
     padding: 24px 0;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu-list.current {
+    position: relative;
+
+}
+
+.menu-list.current::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    height: 4px;
+    background-color: #404BBF;
+    border-radius: 2px;
+
 }
 
 .menu-list:hover,
-.menu-list:focus {
+.menu-list:focus,
+.menu-list.current {
     color: #404bbf;
 }
 
@@ -162,10 +183,15 @@ img {
 /* Hero section */
 .hero {
     background-color: #2e2f42;
+    background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url(../images/people-office\ 1.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
     padding: 188px 0 188px;
+
 }
+
 
 .main-title {
     font-size: 56px;
@@ -232,10 +258,20 @@ img {
 }
 
 .features-item {
-
     width: calc((100% - 72px) / 4);
 }
 
+.icon-features {
+    background-color: #f4f4fd;
+    width: 264px;
+    height: 112px;
+    border: 1px solid #8E8F99;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+}
 
 /* Team section */
 .team-section {
@@ -256,11 +292,15 @@ img {
 .team-list {
     display: flex;
     gap: 24px;
+
 }
 
 .team-item {
     background-color: #ffffff;
     border-radius: 0px 0px 4px 4px;
+    box-shadow: 0 1px 6px 0 rgba(46, 47, 66, 0.08),
+        0 1px 1px 0 rgba(46, 47, 66, 0.16),
+        0 2px 1px 0 rgba(46, 47, 66, 0.08);
 
 }
 
@@ -279,6 +319,7 @@ img {
     letter-spacing: 0.02em;
     color: #434455;
     text-align: center;
+    margin-bottom: 8px;
 }
 
 .team-description {
@@ -286,6 +327,30 @@ img {
     text-align: center;
 }
 
+
+.soc-list {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+}
+
+.soc-item {
+    width: 40px;
+    height: 40px;
+}
+
+.soc-link {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #4D5AE5;
+}
+
+.soc-link:hover {
+    background-color: #404BBF;
+}
 
 /* Portfolio */
 .portfolio {
@@ -333,7 +398,46 @@ img {
     border-left: 1px solid #E7E9FC;
 }
 
+.tumb {
+    position: relative;
+    overflow: hidden;
 
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.02em;
+    color: #F4F4FD;
+    background-color: #4D5AE5;
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-top: 40px;
+    transform: translateY(100%);
+    transition: transform 250ms ease-in-out;
+}
+
+.portfolio-items {
+    cursor: pointer;
+
+}
+
+.portfolio-items:hover {
+    box-shadow: 0 1px 6px 0 rgba(46, 47, 66, 0.08),
+        0 1px 1px 0 rgba(46, 47, 66, 0.16),
+        0 2px 1px 0 rgba(46, 47, 66, 0.08);
+}
+
+.portfolio-items:hover .overlay {
+    transform: translateY(0);
+
+}
 
 /* Footer */
 .footer-bg-color {
@@ -366,6 +470,7 @@ img {
     width: 264px;
 }
 
+
 .visually-hidden {
     position: absolute;
     width: 1px;
@@ -378,4 +483,47 @@ img {
     clip: rect(0, 0, 0, 0);
     overflow: hidden;
 
+}
+
+.footer-p {
+    width: 96px;
+    color: #fff;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0.32px;
+    margin-bottom: 16px;
+}
+
+.footer-social-media {
+    margin-left: 120px;
+}
+
+.second-footer-container {
+    display: flex;
+}
+
+.social-item {
+    display: flex;
+    gap: 16px;
+}
+
+.social-li {
+    width: 40px;
+    height: 40px;
+}
+
+.social-link {
+
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #4D5AE5;
+}
+
+.social-link:hover {
+    background-color: #404BBF;
 }
